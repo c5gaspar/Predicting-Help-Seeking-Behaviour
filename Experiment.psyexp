@@ -90,7 +90,7 @@
         <Param name="scaleDescription" updates="constant" val="" valType="str"/>
         <Param name="storeHistory" updates="constant" val="False" valType="bool"/>
         <Param name="categoryChoices" updates="constant" val="1 (0%), 2 (25%), 3 (50%), 4 (75%), 5 (100%)" valType="str"/>
-        <Param name="customize_everything" updates="constant" val="textSize = .5, marker=u'triangle', &amp;#10;size=2, pos=[0.0, -0.5], showAccept = False, showValue = False,&amp;#10;choices=[u'Definitely Not\n     (0%)', u'Probably Not\n     (25%)', u'Possibly\n   (50%)', u'Quite Probably\n     (75%)', u'Definitely\n   (100%)'], &amp;#10;tickHeight=-1, markerStart=u'50'" valType="str"/>
+        <Param name="customize_everything" updates="constant" val="textSize = .5, marker=u'triangle', &amp;#10;size=2, pos=[0.0, -0.5], showAccept = False, showValue = False, &amp;#10;choices=[u'Definitely Not\n     (0%)', u'Probably Not\n     (25%)', u'Possibly\n   (50%)', u'Quite Probably\n     (75%)', u'Definitely\n   (100%)'], &amp;#10;tickHeight=-1, markerStart=u'50'" valType="str"/>
         <Param name="name" updates="None" val="likelihood" valType="code"/>
         <Param name="singleClick" updates="constant" val="False" valType="bool"/>
       </RatingScaleComponent>

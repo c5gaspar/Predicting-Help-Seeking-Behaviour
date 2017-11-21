@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.85.3),
-    on October 21, 2017, at 16:36
+    on November 15, 2017, at 21:47
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -40,7 +40,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath=u'C:\\Users\\c5gaspar\\Google Drive\\Courses\\FALL 2017\\PSYCH397\\Experiment\\Experiment.psyexp',
+    originPath=u'C:\\Users\\Connor\\Google Drive\\Courses\\FALL 2017\\PSYCH397\\Experiment\\Predicting-Help-Seeking-Behaviour\\Experiment.psyexp',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -53,7 +53,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=(1536, 864), fullscr=True, screen=0,
+    size=(1920, 1080), fullscr=True, screen=0,
     allowGUI=True, allowStencil=False,
     monitor='testMonitor', color=[-1.000,-1.000,-1.000], colorSpace='rgb',
     blendMode='avg', useFBO=True)
@@ -67,23 +67,23 @@ else:
 # Initialize components for Routine "start"
 startClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text=u'In the following experiment you will be presented with a series of questions. \n\nYour job will be to indicate your responses using a slider.\n\nIf you have any questions before you begin, feel free to let one of us know.\n\nPlease press the enter key to continue.',
-    font=u'Times New Roman',
+    text='In the following experiment you will be presented with a series of questions. \n\nYour job will be to indicate your responses using a slider.\n\nIf you have any questions before you begin, feel free to let one of us know.\n\nPlease press the enter key to continue.',
+    font='Times New Roman',
     pos=(0, 0), height=0.075, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "scenarioTrials"
 scenarioTrialsClock = core.Clock()
 likelihood = visual.RatingScale(win=win, name='likelihood', textSize = .5, marker=u'triangle', 
-size=2, pos=[0.0, -0.5], showAccept = False, showValue = False,
+size=2, pos=[0.0, -0.5], showAccept = False, showValue = False, 
 choices=[u'Definitely Not\n     (0%)', u'Probably Not\n     (25%)', u'Possibly\n   (50%)', u'Quite Probably\n     (75%)', u'Definitely\n   (100%)'], 
 tickHeight=-1, markerStart=u'50')
 Scenario = visual.TextStim(win=win, name='Scenario',
     text='default text',
-    font=u'Times New Roman',
+    font='Times New Roman',
     pos=(0, .6), height=0.075, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 qPrompt = visual.TextStim(win=win, name='qPrompt',
     text='What is the likelihood that you will seek help from the course instructor?',
@@ -103,7 +103,7 @@ GPAClock = core.Clock()
 gpaProbe = visual.TextStim(win=win, name='gpaProbe',
     text=u'Please indicate your overall university average using the slider below.',
     font=u'Times New Roman',
-    pos=(0, .4), height=.075, wrapWidth=None, ori=0, 
+    pos=(0, .4), height=1, wrapWidth=None, ori=0, 
     color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 gpaScale = visual.RatingScale(win=win, name='gpaScale', textSize = .4, marker=u'triangle', 
@@ -117,19 +117,19 @@ proceedInstructions2 = visual.TextStim(win=win, name='proceedInstructions2',
     color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 noteText = visual.TextStim(win=win, name='noteText',
-    text=u'Note: We are using intervals of ~5%',
-    font=u'Times New Roman',
+    text='Note: We are using intervals of ~5%',
+    font='Times New Roman',
     pos=(0, -.2), height=0.075, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-4.0);
 
 # Initialize components for Routine "end"
 endClock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
-    text=u'            Thank you for your participation!\n\nPlease press the enter key to exit the experiment.',
-    font=u'Times New Roman',
+    text='            Thank you for your participation!\n\nPlease press the enter key to exit the experiment.',
+    font='Times New Roman',
     pos=(0, 0), height=0.075, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Create some handy timers
@@ -208,7 +208,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 scenarios = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions(u'scenario.xlsx'),
+    trialList=data.importConditions('scenario.xlsx'),
     seed=None, name='scenarios')
 thisExp.addLoop(scenarios)  # add the loop to the experiment
 thisScenario = scenarios.trialList[0]  # so we can initialise stimuli with some values

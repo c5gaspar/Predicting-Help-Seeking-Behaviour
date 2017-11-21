@@ -1,0 +1,129 @@
+
+```{r setup}
+library(tidyverse); library(Hmisc); library(lm.beta)
+dat <- read.csv("../fullData.csv", na.strings = "", stringsAsFactors = F) %>%
+  filter(complete.cases(.))
+```
+
+```{r re-classing}
+dat$PofHelp <- c(100, 50, 25, 75)[factor(dat$PofHelp)]
+dat$Grades <- c(77.5, 82.5, 87.5, 92.5)[factor(dat$Grades)]
+```
+
+```{r Conscientiousness}
+# C predict P() 
+persModel <- with(dat, lm(PofHelp ~ C))
+persSummary <- persModel %>% summary()
+persStandard <- persModel %>% lm.beta()
+
+# Grades predict C
+ivModel <- with(dat, lm(Grades ~ C))
+ivSummary <- ivModel %>% summary()
+ivStandard <- ivModel %>% lm.beta()
+
+### Meditation Model ###
+# Additive model
+fullModel <- with(dat, lm(PofHelp ~ Grades + C))
+fullSummary <- fullModel %>% summary()
+fullStandard <- fullModel %>% lm.beta()
+```
+
+```{r Openness}
+# O predict P() 
+persModel <- with(dat, lm(PofHelp ~ O))
+persSummary <- persModel %>% summary()
+persStandard <- persModel %>% lm.beta()
+
+# Grades predict O
+ivModel <- with(dat, lm(O ~ Grades))
+ivSummary <- ivModel %>% summary()
+ivStandard <- ivModel %>% lm.beta()
+
+### Meditation Model ###
+# Additive model
+fullModel <- with(dat, lm(PofHelp ~ Grades + O))
+fullSummary <- fullModel %>% summary()
+fullStandard <- fullModel %>% lm.beta()
+
+```
+
+```{r Extraversion}
+# E predict P() 
+persModel <- with(dat, lm(PofHelp ~ E))
+persSummary <- persModel %>% summary()
+persStandard <- persModel %>% lm.beta()
+
+# Grades predict E
+ivModel <- with(dat, lm(E ~ Grades))
+ivSummary <- ivModel %>% summary()
+ivStandard <- ivModel %>% lm.beta()
+
+### Meditation Model ###
+# Additive model
+fullModel <- with(dat, lm(PofHelp ~ Grades + E))
+fullSummary <- fullModel %>% summary()
+fullStandard <- fullModel %>% lm.beta()
+
+```
+
+```{r Agreeableness}
+# A predict P() 
+persModel <- with(dat, lm(PofHelp ~ A))
+persSummary <- persModel %>% summary()
+persStandard <- persModel %>% lm.beta()
+
+# Grades predict A
+ivModel <- with(dat, lm(A ~ Grades))
+ivSummary <- ivModel %>% summary()
+ivStandard <- ivModel %>% lm.beta()
+
+### Meditation Model ###
+# Additive model
+fullModel <- with(dat, lm(PofHelp ~ Grades + A))
+fullSummary <- fullModel %>% summary()
+fullStandard <- fullModel %>% lm.beta()
+
+```
+
+```{r Neuroticism}
+# N predict P() 
+persModel <- with(dat, lm(PofHelp ~ N))
+persSummary <- persModel %>% summary()
+persStandard <- persModel %>% lm.beta()
+
+# Grades predict N
+ivModel <- with(dat, lm(N ~ Grades))
+ivSummary <- ivModel %>% summary()
+ivStandard <- ivModel %>% lm.beta()
+
+### Meditation Model ###
+# Additive model
+fullModel <- with(dat, lm(PofHelp ~ Grades + N))
+fullSummary <- fullModel %>% summary()
+fullStandard <- fullModel %>% lm.beta()
+
+```
+
+
+```{r Grades-Graphics}
+ggplot(data = dat,aes(Grades, PofHelp))+
+  geom_point(alpha=.45)+
+  geom_smooth(method = "lm", se=F, colour = "red", 
+              linetype = "dashed", size = .5)+
+  scale_x_continuous("Academic Performance (%)", limits = c(75, 95), breaks = seq(75, 100, 5))+
+  scale_y_continuous("Probability of Asking for Help (%)", 
+                     limit = c(25, 100), breaks = seq(25, 100, 25))+
+  theme_classic()
+
+```
+
+```{r Personality-Graphics}
+ggplot(dat, aes(C, PofHelp))+
+  geom_point(alpha = .45)+
+  geom_smooth(method = "lm", se = F, colour = "red", linetype = "dashed", size = .5)+
+  scale_x_continuous("Big 5 Conscientiousness Score", limit = c(2, 5), breaks = seq(2, 5, .5))+
+  scale_y_continuous("Probability of Asking for Help (%)", 
+                     limit = c(25, 100), breaks = seq(25, 100, 25))+
+  theme_classic()
+  
+```
